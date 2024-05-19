@@ -6,13 +6,14 @@ export class GuiModel {
 
     private _guiModel = {
         "application": {
-            "title": "Härri Nüssli Schwager Ketheeswaran by EatTheRich© Company",
+            "title": "Härri Nüssli Schwager by EatTheRich© Company",
             "formList": [
                 {
                     "id": "FriendForm",
                     "title": "Friend",
                     "url": "/friend",
                     "formFieldList": [
+
                         {
                             "id": "familyName",
                             "type": "text",
@@ -72,7 +73,10 @@ export class GuiModel {
                             "type": "okButton",
                             "name": "Ok"
                         }
+                        
                     ]
+                    
+
                 },
                 {
                     "id": "LocationForm",
@@ -107,14 +111,22 @@ export class GuiModel {
                     "formFieldList": [
                         {
                             "id": "activity",
-                            "type": "autocomplete",
+                            "type": "text",
                             "name": "Activity",
                             "url": "/activity",
-                            "defaultKey": "activityKey",
-                            "readonly": true,
-                            "form": "ActivityForm",
+                            //"defaultKey": "activityKey",
+                            //"readonly": true,
+                            //"form": "ActivityForm",
                             "width": 2
                         },
+                        {
+                            "id": "name",
+                            "type": "text",
+                            "name": "LocationName",
+                            "width": 2,
+                            "required": true
+                        },
+                        
                         {
                             "type": "deleteButton",
                             "name": "Delete"
@@ -161,6 +173,14 @@ export class GuiModel {
                             "color": "wisteria",
                             "page": "groupspage",
                         },
+                        {
+                            "type": "button",
+                            "name": "Activity",
+                            "icon": "fa-futbol",
+                            "color": "magenta",
+                            "page": "activitiespage",
+
+                        }
                     ]
                 },
                 {
@@ -176,6 +196,15 @@ export class GuiModel {
                             "color": "green",
                             "form": {
                                 "form": "FriendForm"
+                            }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "AddActivity",
+                            "icon": "fa-futbol",
+                            "color": "magenta",
+                            "form": {
+                                "form": "AddActivityForm"
                             }
                         },
                         {
@@ -219,6 +248,34 @@ export class GuiModel {
                     ]
                 },
                 {
+                    "id": "activitiespage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewActivity",
+                            "icon": "fa-futbol",
+                            "color": "magenta",
+                            "width": 2,
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-futbol",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/activity",
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },
+                    ]
+                },
+                {
                     "id": "groupspage",
                     "elementList": [{ "type": "backbutton", },
                     {
@@ -235,9 +292,9 @@ export class GuiModel {
                         "search": true,
                         "url": "/group",
                         "form": {
-                        "form": "GroupForm"
+                            "form": "GroupForm"
                         }
-                        },
+                    },
                     ]
                 }
             ]
